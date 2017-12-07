@@ -1,0 +1,16 @@
+Sample Request
+{ 'PaymentRequest':{
+   'Merchant':'GPID_Here',
+            'Card':{'CardNumber':'441111111111','CardExpiryMonth':'01','CardExpiryYear':'01','CardCvv':'111'},
+            'Payment':{'Description':'just_a_Description','ReferenceID':'test001','OrderID':'test001','Amount':'1.00'},
+             'Mode':'Visa/Mastercard','CustomerID':'user001','ProductID':'TEl118','merchantlogo':'','merchantName':''}
+}
+                                       
+ Sample Response                                                                      
+    {'PaymentResponse':{
+            'Date':'transaction_datae',
+            'referenceID':'transactionRef',
+            'PaymentStatus':'Approved/Declined',
+            'Reason':'reason for decline',
+            'Mode':'payment mode chosen'}
+	

@@ -1,0 +1,56 @@
+1. secure submit: 
+endpoint: https://www.zenithbank.com.gh/api.globalpay/Test/SecurePaymentRequest
+make a post request to the endpiont with the payment details and a transaction ID will be returned. 
+fields:
+ GPID   --Globalpay Merchnat ID
+ amount --transaction amount set to 2 decimal places
+ desc   --transaction description
+ referenceID --unique transaction reference
+ ProductID  -- purchase product ID
+ CustomerID -- cusutomer id if any
+ merchantlogo --link to merchant logo if any
+ merchantName -- Merchant Name
+eg
+
+**NOTE** THIS MUST BE DONE IN SCRIPT FROM VIEW OF CUSTOMER
+<form method="post" action="https://www.zenithbank.com.gh/api.globalpay/Test/SecurePaymentRequest" id="myform" name="myform">
+<input required type="text" class="form-control" name="GPID" value="GPID"/> 
+<input required type="text" class="form-control" name="amount" value="amount"/>
+<input required type="text" class="form-control" name="desc" value="desc"/>
+<input required type="text" class="form-control" name="referenceID" value="referenceID"/>
+<input required type="text" class="form-control" name="ProductID" value=""/><!--optional-->
+<input required type="text" class="form-control" name="CustomerID" value=""/><!--optional-->
+<input required type="hidden" class="form-control" name="merchantlogo" value=""/><!--optional-->
+<input required type="hidden" class="form-control" name="merchantName" value=""/><!--optional-->
+<input type="submit" value="submit"/>
+</form>
+
+
+2. SecurePay: 
+**NOTE** THIS MUST BE DONE IN SCRIPT away FROM VIEW OF CUSTOMER
+endpiont:https://www.zenithbank.com.gh/api.globalpay/Test/PaySecure
+redirect customer to payment portal wiith tid for payment processing
+fields:
+
+gpid --Globalpay ID
+tid  --transaction ID received from SecureSubmit request
+
+eg
+<form method="get" action="https://www.zenithbank.com.gh/api.globalpay/Test/PaySecure" id="myform" name="myform">
+<input required type="text" class="form-control" name="gpid" value="gpid"/> 
+<input required type="text" class="form-control" name="tid" value="tid"/>
+<input type="submit" value="submit"/>
+</form>
+
+
+3. Cofirm TransactionStatus
+make a get request to : 
+
+eg
+<form method="get" action="https://www.zenithbank.com.gh/api.globalpay/api/sandbox/confirmTestTransaction" id="myform" name="myform">
+<input required type="text" class="form-control" name="gpid" value=""/> 
+<input required type="text" class="form-control" name="ref" value=""/>
+<input type="submit" value="submit"/>
+</form>
+
+to get the transaction results in json.

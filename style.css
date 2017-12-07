@@ -1,0 +1,1250 @@
+/* -------------------------------- 
+
+Primary style
+
+-------------------------------- */
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: "Open Sans", sans-serif;
+    color: #0f222b;
+    background-image: url(../img/bg.jpg);
+    background-size: cover;
+    background-position: center right;
+}
+
+a {
+    color: #95ac5f;
+    text-decoration: none;
+}
+
+input {
+    font-family: "Open Sans", sans-serif;
+    font-size: 1.6rem;
+}
+
+/* -------------------------------- 
+
+Header - not needed in production
+
+-------------------------------- */
+.cd-main-header {
+    height: 170px;
+    text-align: center;
+    padding-top: 80px;
+}
+
+    .cd-main-header h1 {
+        color: #ffffff;
+        font-size: 2rem;
+        line-height: 60px;
+    }
+
+    .cd-main-header p {
+        color: #ffffff;
+        font-size: 95%;
+        opacity: 0.8;
+    }
+
+@media only screen and (min-width: 1024px) {
+    .cd-main-header {
+        height: 220px;
+    }
+
+        .cd-main-header h1 {
+            font-size: 2.6rem;
+        }
+}
+
+/* -------------------------------- 
+
+Pricing tables 
+
+-------------------------------- */
+.cd-pricing {
+    width: 90%;
+    max-width: 280px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top:90px;
+}
+
+    .cd-pricing > li {
+        position: relative;
+        margin: 0 auto 2.5em;
+        background-color: #ffffff;
+        border-radius: .3em .3em .25em .25em;
+        box-shadow: 0 2px 8px rgba(2, 4, 5, 0.5);
+    }
+
+        .cd-pricing > li.empty-box {
+            box-shadow: none;
+        }
+
+            .cd-pricing > li.empty-box::after {
+                /* placeholder visible when .cd-form is open - in this case same color of the background */
+                content: '';
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background-color: #0f222b;
+            }
+
+@media only screen and (min-width: 768px) {
+    .cd-pricing {
+        max-width: 1000px;
+    }
+
+        .cd-pricing > li {
+            width: 32%;
+            float: left;
+            margin-right: 2%;
+            margin-bottom: 0;
+        }
+
+            .cd-pricing > li:last-of-type {
+                margin-right: 0;
+            }
+}
+
+@media only screen and (min-width: 1024px) {
+    .cd-pricing > li {
+        width: 28.0%;
+        float: left;
+        margin-right: 8%;
+    }
+}
+
+.cd-pricing-header {
+    padding: 1.3em 1em;
+    background-color: #95ac5f;
+    border-radius: .25em .25em 0 0;
+    box-shadow: inset 0 1px 0 #c1cfa2;
+    color: #ffffff;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+    .cd-pricing-header h2, .cd-pricing-header .cd-price {
+        line-height: 1.4;
+    }
+
+    .cd-pricing-header h2 {
+        font-size: 2rem;
+        margin-bottom: 0.15em;
+    }
+
+    .cd-pricing-header .cd-price {
+        display: inline-block;
+        opacity: 0.5;
+        font-size: 90%;
+    }
+
+        .cd-pricing-header .cd-price::after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+    .cd-pricing-header span {
+        float: left;
+    }
+
+        .cd-pricing-header span:nth-of-type(2) {
+            color: #c1cfa2;
+        }
+
+            .cd-pricing-header span:nth-of-type(2)::before {
+                content: '/';
+            }
+
+@media only screen and (min-width: 768px) {
+    .cd-pricing-header h2 {
+        font-size: 2.6rem;
+        font-weight: 100;
+    }
+}
+
+.cd-pricing-features {
+    padding: 2.8em 1em 2.5em;
+}
+
+    .cd-pricing-features li {
+        line-height: 1.5;
+        margin-bottom: .4em;
+        text-align: left;
+        padding-left: 30px;
+    }
+
+        .cd-pricing-features li:last-of-type {
+            margin-bottom: 0;
+        }
+
+    .cd-pricing-features em {
+        position: relative;
+        padding-left: 28px;
+    }
+
+        .cd-pricing-features em::before {
+            /* this is the icon (check or cross) next to the plan feature */
+            position: absolute;
+            content: '';
+            left: 0;
+            top: 50%;
+            bottom: auto;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            height: 24px;
+            width: 24px;
+            background: url(../img/cd-icons-plan.svg) no-repeat -24px 0;
+        }
+
+    .cd-pricing-features .available em::before {
+        background-position: 0 0;
+    }
+
+.cd-pricing-footer {
+    padding-bottom: 1.7em;
+}
+
+    .cd-pricing-footer a {
+        -webkit-transition: -webkit-transform 0.3s;
+        -moz-transition: -moz-transform 0.3s;
+        transition: transform 0.3s;
+    }
+
+.empty-box .cd-pricing-footer a {
+    /* scale down to 0 the action button when sign up form is visible */
+    -webkit-transform: scale(0);
+    -moz-transform: scale(0);
+    -ms-transform: scale(0);
+    -o-transform: scale(0);
+    transform: scale(0);
+}
+
+/* -------------------------------- 
+
+Form 
+
+-------------------------------- */
+.cd-form {
+    position: fixed;
+    z-index: 2;
+    background-color: #ffffff;
+    border-radius: .25em;
+    visibility: hidden;
+    -webkit-transition: visibility 0s 0.8s;
+    -moz-transition: visibility 0s 0.8s;
+    transition: visibility 0s 0.8s;
+    /* Force Hardware Acceleration in WebKit */
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+    .cd-form::before {
+        /* never visible - this is used in jQuery to check the current MQ */
+        display: none;
+        content: 'mobile';
+    }
+
+    .cd-form::after {
+        /* gradient visible at the bottom of the form - to indicate it's possible to scroll */
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        height: 30px;
+        width: 100%;
+        border-radius: 0 0 .25em .25em;
+        background-color: rgba(255, 255, 255, 0);
+        background-image: -webkit-linear-gradient(bottom, white, rgba(255, 255, 255, 0));
+        background-image: linear-gradient(to top,white, rgba(255, 255, 255, 0));
+        pointer-events: none;
+    }
+
+    .cd-form .cd-plan-info {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        text-align: center;
+    }
+
+        .cd-form .cd-plan-info > * {
+            width: 100%;
+        }
+
+    .cd-form .cd-pricing-features {
+        position: relative;
+        -webkit-transition: opacity 0.3s 0s, visibility 0s 0s;
+        -moz-transition: opacity 0.3s 0s, visibility 0s 0s;
+        transition: opacity 0.3s 0s, visibility 0s 0s;
+    }
+
+        .cd-form .cd-pricing-features::before {
+            /* this is the layer which covers the .cd-pricing-features when the form is open - visible only on desktop */
+            content: '';
+            position: absolute;
+            /* fix a bug while animating - 1px white space visible */
+            top: -5px;
+            left: 0;
+            height: calc(100% + 5px);
+            width: 100%;
+            background-color: #95ac5f;
+            will-change: transform;
+            -webkit-transform: scaleY(0);
+            -moz-transform: scaleY(0);
+            -ms-transform: scaleY(0);
+            -o-transform: scaleY(0);
+            transform: scaleY(0);
+            -webkit-transform-origin: center top;
+            -moz-transform-origin: center top;
+            -ms-transform-origin: center top;
+            -o-transform-origin: center top;
+            transform-origin: center top;
+            -webkit-transition: -webkit-transform 0.6s 0.2s;
+            -moz-transition: -moz-transform 0.6s 0.2s;
+            transition: transform 0.6s 0.2s;
+        }
+
+    .cd-form .cd-pricing-footer {
+        display: none;
+    }
+
+    .cd-form .cd-more-info {
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 210px;
+        bottom: 0;
+        left: 0;
+        padding: 310px 1.8em 2em;
+        background-color: #f2f2f2;
+        border-radius: .25em 0 0 .25em;
+        /* hidden on mobile */
+        display: none;
+        -webkit-transition: opacity 0.6s;
+        -moz-transition: opacity 0.6s;
+        transition: opacity 0.6s;
+    }
+
+        .cd-form .cd-more-info h3 {
+            line-height: 2;
+        }
+
+        .cd-form .cd-more-info p {
+            font-size: 1.3rem;
+            color: #999999;
+            line-height: 1.6;
+        }
+
+    .cd-form form {
+        padding-top: 90px;
+        height: 100%;
+        overflow: hidden;
+    }
+
+        .cd-form form.is-scrollable {
+            overflow-y: auto;
+        }
+
+    .cd-form fieldset {
+        opacity: 0;
+        margin: 1.5em 2em;
+        /* Force Hardware Acceleration in WebKit */
+        -webkit-transform: translateZ(0);
+        -moz-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        -o-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+        will-change: transform;
+        -webkit-transform: translateY(50px);
+        -moz-transform: translateY(50px);
+        -ms-transform: translateY(50px);
+        -o-transform: translateY(50px);
+        transform: translateY(50px);
+        -webkit-transition: opacity 0.2s, -webkit-transform 0.2s;
+        -moz-transition: opacity 0.2s, -moz-transform 0.2s;
+        transition: opacity 0.2s, transform 0.2s;
+    }
+
+        .cd-form fieldset > div,
+        .cd-form fieldset .cd-credit-card > div {
+            padding-top: 1.2em;
+        }
+
+        .cd-form fieldset > .cd-credit-card {
+            padding-top: 0;
+        }
+
+        .cd-form fieldset div::after {
+            clear: both;
+            content: "";
+            display: table;
+        }
+
+        .cd-form fieldset:last-of-type > div {
+            padding-top: 0;
+        }
+
+    .cd-form legend {
+        width: 100%;
+        font-size: 2.3rem;
+        line-height: 1.2;
+        padding-bottom: 0.3em;
+        border-bottom: 1px solid #e5e5e5;
+    }
+
+    .cd-form input[type="radio"],
+    .cd-form label {
+        cursor: pointer;
+    }
+
+    .cd-form label {
+        font-size: 1rem;
+        font-weight: bold;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: #b2b2b2;
+    }
+
+    .cd-form input[type="radio"] + label {
+        color: #0f222b;
+    }
+
+    .cd-form input[type="text"],
+    .cd-form input[type="email"],
+    .cd-form input[type="password"],
+    .cd-form select {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -o-appearance: none;
+        appearance: none;
+        height: 45px;
+        border: 2px solid #e5e5e5;
+        border-radius: 0;
+        background: transparent;
+    }
+
+        .cd-form input[type="text"]:focus,
+        .cd-form input[type="email"]:focus,
+        .cd-form input[type="password"]:focus,
+        .cd-form select:focus {
+            outline: none;
+            border-color: #95ac5f;
+        }
+
+    .cd-form input[type="text"],
+    .cd-form input[type="email"],
+    .cd-form input[type="password"] {
+        width: 100%;
+        display: block;
+        margin-top: 6px;
+        padding: 0 16px;
+    }
+
+    .cd-form select {
+        padding: 0 25px 0 15px;
+        font-size: 1.4rem;
+        display: block;
+        width: 100%;
+        margin-top: 5px;
+    }
+
+        .cd-form select::-ms-expand {
+            /* remove default arrows in IE */
+            display: none;
+        }
+
+    .cd-form .cd-credit-card b {
+        display: block;
+    }
+
+    .cd-form .cd-credit-card p {
+        padding-bottom: 0.5em;
+    }
+
+        .cd-form .cd-credit-card p:last-of-type {
+            width: 100px;
+        }
+
+    .cd-form .cd-select {
+        display: inline-block;
+        position: relative;
+        margin-top: 6px;
+    }
+
+        .cd-form .cd-select::after {
+            /* arrow icons */
+            content: '';
+            position: absolute;
+            top: 50%;
+            bottom: auto;
+            -webkit-transform: translateY(-50%);
+            -moz-transform: translateY(-50%);
+            -ms-transform: translateY(-50%);
+            -o-transform: translateY(-50%);
+            transform: translateY(-50%);
+            right: 10px;
+            height: 6px;
+            width: 10px;
+            background: url(../img/cd-icon-arrow.svg) no-repeat center center;
+            pointer-events: none;
+        }
+
+    .cd-form .cd-close {
+        /* 'X' close icon */
+        position: absolute;
+        z-index: 2;
+        right: 0;
+        top: 0;
+        height: 40px;
+        width: 40px;
+        background: url(../img/cd-icon-close.svg) no-repeat center center;
+        -webkit-transform: scale(0);
+        -moz-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        transform: scale(0);
+        -webkit-transition: -webkit-transform 0.2s;
+        -moz-transition: -moz-transform 0.2s;
+        transition: transform 0.2s;
+        /* image replacement */
+        overflow: hidden;
+        text-indent: 100%;
+        white-space: nowrap;
+        color: transparent;
+    }
+
+    .cd-form.is-visible {
+        /* form is visible */
+        visibility: visible;
+        -webkit-transition: visibility 0s 0s;
+        -moz-transition: visibility 0s 0s;
+        transition: visibility 0s 0s;
+        overflow-y:scroll
+    }
+
+        .cd-form.is-visible .cd-pricing-features {
+            /* desktop only */
+            opacity: 0;
+            visibility: hidden;
+            -webkit-transition: opacity 0.6s 0s, visibility 0s 0.8s;
+            -moz-transition: opacity 0.6s 0s, visibility 0s 0.8s;
+            transition: opacity 0.6s 0s, visibility 0s 0.8s;
+        }
+
+        .cd-form.is-visible form {
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .cd-form.is-visible fieldset {
+            opacity: 1;
+            -webkit-transform: translateY(0);
+            -moz-transform: translateY(0);
+            -ms-transform: translateY(0);
+            -o-transform: translateY(0);
+            transform: translateY(0);
+            -webkit-transition: -webkit-transform 0.3s 0.6s, opacity 0.3s 0.6s;
+            -moz-transition: -moz-transform 0.3s 0.6s, opacity 0.3s 0.6s;
+            transition: transform 0.3s 0.6s, opacity 0.3s 0.6s;
+        }
+
+            .cd-form.is-visible fieldset:nth-of-type(2) {
+                /* delay second fieldset animation */
+                -webkit-transition: -webkit-transform 0.3s 0.7s, opacity 0.3s 0.7s;
+                -moz-transition: -moz-transform 0.3s 0.7s, opacity 0.3s 0.7s;
+                transition: transform 0.3s 0.7s, opacity 0.3s 0.7s;
+            }
+
+            .cd-form.is-visible fieldset:nth-of-type(3) {
+                /* delay second fieldset animation */
+                -webkit-transition: -webkit-transform 0.3s 0.8s, opacity 0.3s 0.8s;
+                -moz-transition: -moz-transform 0.3s 0.8s, opacity 0.3s 0.8s;
+                transition: transform 0.3s 0.8s, opacity 0.3s 0.8s;
+            }
+
+        .cd-form.is-visible .cd-close {
+            -webkit-transform: scale(1);
+            -moz-transform: scale(1);
+            -ms-transform: scale(1);
+            -o-transform: scale(1);
+            transform: scale(1);
+            -webkit-transition: -webkit-transform 0.3s 0.8s;
+            -moz-transition: -moz-transform 0.3s 0.8s;
+            transition: transform 0.3s 0.8s;
+        }
+
+@media only screen and (min-width: 768px) {
+    .cd-form::before {
+        /* never visible - this is used in jQuery to check the current MQ */
+        content: 'desktop';
+    }
+
+    .cd-form .cd-pricing-header {
+        border-radius: .25em 0 0 0;
+    }
+
+    .cd-form .cd-pricing-features {
+        -webkit-transition: padding 0.3s 0.2s;
+        -moz-transition: padding 0.3s 0.2s;
+        transition: padding 0.3s 0.2s;
+    }
+
+    .cd-form .cd-more-info {
+        display: block;
+        opacity: 0;
+    }
+
+    .cd-form form {
+        padding: 0 0 0 210px;
+    }
+
+    .cd-form .half-width {
+        width: 48%;
+        float: left;
+        margin-right: 4%;
+    }
+
+        .cd-form .half-width:nth-of-type(2n) {
+            margin-right: 0;
+        }
+
+    .cd-form input[type="submit"] {
+        float: right;
+    }
+
+    .cd-form .cd-close {
+        /* move close icon outside the form container */
+        top: -40px;
+        right: -5px;
+    }
+
+    .cd-form.is-visible .cd-pricing-features {
+        padding-top: 0;
+        opacity: 1;
+        visibility: visible;
+        -webkit-transition: padding 0.3s;
+        -moz-transition: padding 0.3s;
+        transition: padding 0.3s;
+    }
+
+        .cd-form.is-visible .cd-pricing-features::before {
+            -webkit-transform: scaleY(1);
+            -moz-transform: scaleY(1);
+            -ms-transform: scaleY(1);
+            -o-transform: scaleY(1);
+            transform: scaleY(1);
+            -webkit-transition: -webkit-transform 0.4s 0s;
+            -moz-transition: -moz-transform 0.4s 0s;
+            transition: transform 0.4s 0s;
+        }
+
+    .cd-form.is-visible .cd-more-info {
+        opacity: 1;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .cd-form .cd-credit-card p:nth-of-type(2) {
+        width: 25%;
+        margin-right: 4%;
+    }
+
+    .no-csstransitions .cd-form .cd-credit-card p:nth-of-type(2) {
+        width: 48%;
+        margin-right: 0;
+    }
+
+    .cd-form .cd-credit-card p:nth-of-type(3) {
+        width: 19%;
+        margin-right: 0;
+    }
+}
+
+/* -------------------------------- 
+
+Buttons 
+
+-------------------------------- */
+.cd-pricing-footer a, .cd-form input[type="submit"] {
+    display: inline-block;
+    padding: 1em 1.8em;
+    border-radius: 50em;
+    text-transform: uppercase;
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.cd-pricing-footer a {
+    border: 1px solid rgba(223, 79, 113, 0.4);
+    color: #df4f71;
+}
+
+.cd-form input[type="submit"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    background-color: #df4f71;
+    color: #ffffff;
+    border: none;
+    cursor: pointer;
+}
+
+/* -------------------------------- 
+
+Shadow layer 
+
+-------------------------------- */
+.cd-overlay {
+    /* shadow layer visible when navigation is open */
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(15, 34, 43, 0.8);
+    visibility: hidden;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s 0.2s, visibility 0s 0.8s;
+    -moz-transition: opacity 0.6s 0.2s, visibility 0s 0.8s;
+    transition: opacity 0.6s 0.2s, visibility 0s 0.8s;
+}
+
+    .cd-overlay.is-visible {
+        opacity: 1;
+        visibility: visible;
+        -webkit-transition: opacity 0.8s 0s, visibility 0s 0s;
+        -moz-transition: opacity 0.8s 0s, visibility 0s 0s;
+        transition: opacity 0.8s 0s, visibility 0s 0s;
+    }
+
+.hidden {
+    display: none;
+}
+
+@import "https://fonts.googleapis.com/css?family=Montserrat:300,400,700";
+
+.rwd-table {
+    margin: 1em 0;
+    min-width: 300px;
+}
+
+    .rwd-table tr {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+    }
+
+    .rwd-table th {
+        display: none;
+    }
+
+    .rwd-table td {
+        display: block;
+    }
+
+        .rwd-table td:first-child {
+            padding-top: .5em;
+        }
+
+        .rwd-table td:last-child {
+            padding-bottom: .5em;
+        }
+
+        .rwd-table td:before {
+            content: attr(data-th) ": ";
+            font-weight: bold;
+            width: 6.5em;
+            display: inline-block;
+        }
+
+@media (min-width: 480px) {
+    .rwd-table td:before {
+        display: none;
+    }
+}
+
+.rwd-table th, .rwd-table td {
+    text-align: left;
+}
+
+@media (min-width: 480px) {
+    .rwd-table th, .rwd-table td {
+        display: table-cell;
+        padding: .25em .5em;
+    }
+
+        .rwd-table th:first-child, .rwd-table td:first-child {
+            padding-left: 0;
+        }
+
+        .rwd-table th:last-child, .rwd-table td:last-child {
+            padding-right: 0;
+        }
+}
+
+tbody {
+    padding: 0 2em;
+    font-family: Montserrat, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+    color: #444;
+    background: #eee;
+}
+
+h1 {
+    font-weight: normal;
+    letter-spacing: -1px;
+    color: #34495E;
+}
+
+.rwd-table {
+    background: #34495E;
+    color: #fff;
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+    .rwd-table tr {
+        border-color: #46637f;
+    }
+
+    .rwd-table th, .rwd-table td {
+        margin: .5em 1em;
+    }
+
+@media (min-width: 480px) {
+    .rwd-table th, .rwd-table td {
+        padding: 1em !important;
+    }
+}
+
+.rwd-table th, .rwd-table td:before {
+    color: #dd5;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+
+.closekmark {
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    -ms-transform: rotate(45deg); /* IE 9 */
+    -webkit-transform: rotate(45deg); /* Chrome, Safari, Opera */
+    transform: rotate(45deg);
+}
+
+.loader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/*new*/
+.windows8 {
+    position: relative;
+    width: 78px;
+    height: 78px;
+    margin: auto;
+}
+
+    .windows8 .wBall {
+        position: absolute;
+        width: 74px;
+        height: 74px;
+        opacity: 0;
+        transform: rotate(225deg);
+        -o-transform: rotate(225deg);
+        -ms-transform: rotate(225deg);
+        -webkit-transform: rotate(225deg);
+        -moz-transform: rotate(225deg);
+        animation: orbit 6.96s infinite;
+        -o-animation: orbit 6.96s infinite;
+        -ms-animation: orbit 6.96s infinite;
+        -webkit-animation: orbit 6.96s infinite;
+        -moz-animation: orbit 6.96s infinite;
+    }
+
+        .windows8 .wBall .wInnerBall {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgb(149,172,95);
+            left: 0px;
+            top: 0px;
+            border-radius: 10px;
+        }
+
+    .windows8 #wBall_1 {
+        animation-delay: 1.52s;
+        -o-animation-delay: 1.52s;
+        -ms-animation-delay: 1.52s;
+        -webkit-animation-delay: 1.52s;
+        -moz-animation-delay: 1.52s;
+    }
+
+    .windows8 #wBall_2 {
+        animation-delay: 0.3s;
+        -o-animation-delay: 0.3s;
+        -ms-animation-delay: 0.3s;
+        -webkit-animation-delay: 0.3s;
+        -moz-animation-delay: 0.3s;
+    }
+
+    .windows8 #wBall_3 {
+        animation-delay: 0.61s;
+        -o-animation-delay: 0.61s;
+        -ms-animation-delay: 0.61s;
+        -webkit-animation-delay: 0.61s;
+        -moz-animation-delay: 0.61s;
+    }
+
+    .windows8 #wBall_4 {
+        animation-delay: 0.91s;
+        -o-animation-delay: 0.91s;
+        -ms-animation-delay: 0.91s;
+        -webkit-animation-delay: 0.91s;
+        -moz-animation-delay: 0.91s;
+    }
+
+    .windows8 #wBall_5 {
+        animation-delay: 1.22s;
+        -o-animation-delay: 1.22s;
+        -ms-animation-delay: 1.22s;
+        -webkit-animation-delay: 1.22s;
+        -moz-animation-delay: 1.22s;
+    }
+
+
+
+@keyframes orbit {
+    0% {
+        opacity: 1;
+        z-index: 99;
+        transform: rotate(180deg);
+        animation-timing-function: ease-out;
+    }
+
+    7% {
+        opacity: 1;
+        transform: rotate(300deg);
+        animation-timing-function: linear;
+        origin: 0%;
+    }
+
+    30% {
+        opacity: 1;
+        transform: rotate(410deg);
+        animation-timing-function: ease-in-out;
+        origin: 7%;
+    }
+
+    39% {
+        opacity: 1;
+        transform: rotate(645deg);
+        animation-timing-function: linear;
+        origin: 30%;
+    }
+
+    70% {
+        opacity: 1;
+        transform: rotate(770deg);
+        animation-timing-function: ease-out;
+        origin: 39%;
+    }
+
+    75% {
+        opacity: 1;
+        transform: rotate(900deg);
+        animation-timing-function: ease-out;
+        origin: 70%;
+    }
+
+    76% {
+        opacity: 0;
+        transform: rotate(900deg);
+    }
+
+    100% {
+        opacity: 0;
+        transform: rotate(900deg);
+    }
+}
+
+@-o-keyframes orbit {
+    0% {
+        opacity: 1;
+        z-index: 99;
+        -o-transform: rotate(180deg);
+        -o-animation-timing-function: ease-out;
+    }
+
+    7% {
+        opacity: 1;
+        -o-transform: rotate(300deg);
+        -o-animation-timing-function: linear;
+        -o-origin: 0%;
+    }
+
+    30% {
+        opacity: 1;
+        -o-transform: rotate(410deg);
+        -o-animation-timing-function: ease-in-out;
+        -o-origin: 7%;
+    }
+
+    39% {
+        opacity: 1;
+        -o-transform: rotate(645deg);
+        -o-animation-timing-function: linear;
+        -o-origin: 30%;
+    }
+
+    70% {
+        opacity: 1;
+        -o-transform: rotate(770deg);
+        -o-animation-timing-function: ease-out;
+        -o-origin: 39%;
+    }
+
+    75% {
+        opacity: 1;
+        -o-transform: rotate(900deg);
+        -o-animation-timing-function: ease-out;
+        -o-origin: 70%;
+    }
+
+    76% {
+        opacity: 0;
+        -o-transform: rotate(900deg);
+    }
+
+    100% {
+        opacity: 0;
+        -o-transform: rotate(900deg);
+    }
+}
+
+@-ms-keyframes orbit {
+    0% {
+        opacity: 1;
+        z-index: 99;
+        -ms-transform: rotate(180deg);
+        -ms-animation-timing-function: ease-out;
+    }
+
+    7% {
+        opacity: 1;
+        -ms-transform: rotate(300deg);
+        -ms-animation-timing-function: linear;
+        -ms-origin: 0%;
+    }
+
+    30% {
+        opacity: 1;
+        -ms-transform: rotate(410deg);
+        -ms-animation-timing-function: ease-in-out;
+        -ms-origin: 7%;
+    }
+
+    39% {
+        opacity: 1;
+        -ms-transform: rotate(645deg);
+        -ms-animation-timing-function: linear;
+        -ms-origin: 30%;
+    }
+
+    70% {
+        opacity: 1;
+        -ms-transform: rotate(770deg);
+        -ms-animation-timing-function: ease-out;
+        -ms-origin: 39%;
+    }
+
+    75% {
+        opacity: 1;
+        -ms-transform: rotate(900deg);
+        -ms-animation-timing-function: ease-out;
+        -ms-origin: 70%;
+    }
+
+    76% {
+        opacity: 0;
+        -ms-transform: rotate(900deg);
+    }
+
+    100% {
+        opacity: 0;
+        -ms-transform: rotate(900deg);
+    }
+}
+
+@-webkit-keyframes orbit {
+    0% {
+        opacity: 1;
+        z-index: 99;
+        -webkit-transform: rotate(180deg);
+        -webkit-animation-timing-function: ease-out;
+    }
+
+    7% {
+        opacity: 1;
+        -webkit-transform: rotate(300deg);
+        -webkit-animation-timing-function: linear;
+        -webkit-origin: 0%;
+    }
+
+    30% {
+        opacity: 1;
+        -webkit-transform: rotate(410deg);
+        -webkit-animation-timing-function: ease-in-out;
+        -webkit-origin: 7%;
+    }
+
+    39% {
+        opacity: 1;
+        -webkit-transform: rotate(645deg);
+        -webkit-animation-timing-function: linear;
+        -webkit-origin: 30%;
+    }
+
+    70% {
+        opacity: 1;
+        -webkit-transform: rotate(770deg);
+        -webkit-animation-timing-function: ease-out;
+        -webkit-origin: 39%;
+    }
+
+    75% {
+        opacity: 1;
+        -webkit-transform: rotate(900deg);
+        -webkit-animation-timing-function: ease-out;
+        -webkit-origin: 70%;
+    }
+
+    76% {
+        opacity: 0;
+        -webkit-transform: rotate(900deg);
+    }
+
+    100% {
+        opacity: 0;
+        -webkit-transform: rotate(900deg);
+    }
+}
+
+@-moz-keyframes orbit {
+    0% {
+        opacity: 1;
+        z-index: 99;
+        -moz-transform: rotate(180deg);
+        -moz-animation-timing-function: ease-out;
+    }
+
+    7% {
+        opacity: 1;
+        -moz-transform: rotate(300deg);
+        -moz-animation-timing-function: linear;
+        -moz-origin: 0%;
+    }
+
+    30% {
+        opacity: 1;
+        -moz-transform: rotate(410deg);
+        -moz-animation-timing-function: ease-in-out;
+        -moz-origin: 7%;
+    }
+
+    39% {
+        opacity: 1;
+        -moz-transform: rotate(645deg);
+        -moz-animation-timing-function: linear;
+        -moz-origin: 30%;
+    }
+
+    70% {
+        opacity: 1;
+        -moz-transform: rotate(770deg);
+        -moz-animation-timing-function: ease-out;
+        -moz-origin: 39%;
+    }
+
+    75% {
+        opacity: 1;
+        -moz-transform: rotate(900deg);
+        -moz-animation-timing-function: ease-out;
+        -moz-origin: 70%;
+    }
+
+    76% {
+        opacity: 0;
+        -moz-transform: rotate(900deg);
+    }
+
+    100% {
+        opacity: 0;
+        -moz-transform: rotate(900deg);
+    }
+}
+
+.center {
+    text-align: center;
+}
+
+.llabel {
+    font: normal 15px !important;
+}
+
+
+.center-stuff {
+    text-align: center;
+    margin-top: 85px;
+}
+
+.img {
+    height: 122px;
+    margin-top: 0px;
+}

@@ -1,0 +1,17 @@
+<div class="col-md-4">
+            <img src="~/Content/images/download1.jpg" class="img" />
+        </div>
+        <div class="col-md-6">
+            <h1>@Model.MerchantName</h1>
+        </div>
+        
+        @{
+    if (Model.MerchantName.Equals("ICGC"))
+    {
+        Model.MerchantName = "INTERNATIONAL CENTRAL GOSPEL CHURCH";
+    }
+
+}
+
+if(result.PaymentResponse.ResponseCode == "0" || result.PaymentResponse.PaymentStatus =="APPROVED" || result.PaymentResponse.ResponseCode == "00" )
+https://www.ndwministries.net/leadafricasummit/Logo.jpg
