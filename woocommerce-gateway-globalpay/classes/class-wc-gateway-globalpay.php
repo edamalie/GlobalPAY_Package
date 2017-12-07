@@ -209,7 +209,7 @@ class WC_Gateway_GlobalPAY extends WC_Payment_Gateway {
 	    	'custom_str2'      => 'WooCommerce/' . WC_VERSION . '; ' . get_site_url(),
 	    	'custom_str3'      => $order->id,
 	    	'source'           => 'WooCommerce-Free-Plugin',
-	    	'Status'           => 'ok'
+	    	'Status'           => 'ok',
 			'CustomerID'      => $order->order_key."--".$order->id,
 			'ProductID'       => get_bloginfo( 'name' ) . ' - ' . $order->get_order_number(),
 			'merLogo'         =>'https://www.ashfoamghana.com/images/ashfoam_logo_alt.png',
