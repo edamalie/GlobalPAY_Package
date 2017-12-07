@@ -46,8 +46,8 @@ class WC_Gateway_GlobalPAY extends WC_Payment_Gateway {
 
 		// Setup default merchant data.
 		$this->merchant_id      = $this->get_option( 'merchant_id' );
-		$this->url              = 'https://www.zenithbank.com.gh/api.globalpay/WooCommerce/PaymentRequest';
-		$this->validate_url     = 'https://www.zenithbank.com.gh/api.globalpay/WooCommerce/PaymentRequest';
+		$this->url              = 'https://www.zenithbank.com.gh/api.globalpay/WooComerce/PaymentRequest';
+		$this->validate_url     = 'https://www.zenithbank.com.gh/api.globalpay/WooComerce/PaymentRequest';
 		$this->title            = $this->get_option( 'title' );
 		$this->response_url	    = add_query_arg( 'wc-api', 'WC_Gateway_GlobalPAY', home_url( '/' ) );
 		$this->send_debug_email = 'yes' === $this->get_option( 'send_debug_email' );
